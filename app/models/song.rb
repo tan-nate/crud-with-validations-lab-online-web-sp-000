@@ -21,7 +21,16 @@ class Song < ApplicationRecord
   def if_released_must_have_release_year
     def passes_validation?
       if released && release_year <= Time.new.year
+        true
+      elsif !released
+        true
+      else
+        false
+      end
+    end
 
+    if !passes_validation?
+      errors.add(:release_year, "must be present if song was released")
     end
   end
 end
