@@ -13,7 +13,6 @@ class SongsController < ApplicationController
   end
 
   def edit
-
   end
 
   def create
@@ -23,6 +22,14 @@ class SongsController < ApplicationController
       redirect song_path(@song)
     else
       render :new
+    end
+  end
+
+  def update
+    if @song.update(post_params)
+      redirect song_path(@song)
+    else
+      render :edit
     end
   end
 
