@@ -15,6 +15,16 @@ class SongsController < ApplicationController
   def edit
   end
 
+  def create
+    @post = Post.new(post_params)
+
+    if @post.save
+      redirect post_path(@post)
+    else
+      render :new
+    end
+  end
+
   private
 
   def set_post
