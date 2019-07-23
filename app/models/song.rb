@@ -6,7 +6,7 @@ class Song < ApplicationRecord
       songs_with_same_title = Song.all.select do |song|
         song.title == title
       end
-      !!song_with_same_title.year 
+      !!song_with_same_title.year
     end
   end
 end
