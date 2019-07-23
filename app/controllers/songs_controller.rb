@@ -9,17 +9,17 @@ class SongsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @song = Song.new
   end
 
   def edit
   end
 
   def create
-    @post = Post.new(post_params)
+    @song = Song.new(song_params)
 
-    if @post.save
-      redirect post_path(@post)
+    if @song.save
+      redirect song_path(@song)
     else
       render :new
     end
@@ -27,11 +27,11 @@ class SongsController < ApplicationController
 
   private
 
-  def set_post
+  def set_song
     @song = Song.find(params[:id])
   end
 
-  def post_params
+  def song_params
     params.require(:song).permit(:title, :released, :release_year, :artist_name, :genre)
   end
 end
