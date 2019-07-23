@@ -1,7 +1,7 @@
 class Song < ApplicationRecord
   validates :title, presence: true
   validate :title_cannot_be_repeated_by_same_artist_in_same_year
-  validates :released, inclusion: {in: %w(True False)}
+  #validates :released, inclusion: {in: %w(True False)}
   validate :if_released_must_have_release_year
   validates :artist_name, presence: true
 
