@@ -4,7 +4,7 @@
       <%= pluralize(@song.errors.count, "error") %>
       prohibited this song from being saved:
     </h2>
- 
+
     <ul>
     <% @song.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
