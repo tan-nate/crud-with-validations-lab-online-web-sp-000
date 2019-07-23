@@ -8,7 +8,7 @@ class Song < ApplicationRecord
   def title_cannot_be_repeated_by_same_artist_in_same_year
     def fails_validation?
       songs_with_same_title_and_year = Song.all.select do |song|
-        song.title == title && song.year == year
+        song.title == title && song.release_year == year
       end
 
       !songs_with_same_title_and_year.empty?
