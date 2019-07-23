@@ -21,9 +21,9 @@ class Song < ApplicationRecord
 
   def if_released_must_have_release_year
     def passes_validation?
-      if released && release_year <= Time.new.year
-        true
-      elsif !released
+      if !released
+        false
+      elsif released && release_year != nil && release_year <= Time.new.year
         true
       else
         false
