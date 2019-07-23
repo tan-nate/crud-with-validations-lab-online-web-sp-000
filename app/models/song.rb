@@ -12,5 +12,6 @@ class Song < ApplicationRecord
 
     if fails_validation?
       errors.add(:title, "can't be repeated by the same artist in the same year")
+    end
   end
 end
